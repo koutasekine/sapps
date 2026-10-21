@@ -1,0 +1,38 @@
+このリポジトリには、ライセンスの異なる 2 つの部分があります。
+
+1. 紹介ページ(index.html の HTML・CSS・JavaScript と文章、images/ の画像。下記 2 を除く)
+   MIT License(本文は下記)
+   Copyright (c) 2026 Kouta Sekine
+
+2. images/slide.webp と images/og.png に写っている、シンプルスライドの配色「えんじ」のデザイン
+   対象:えんじ帯・線・ページ番号の箱などの配置と配色
+   Copyright (c) Yuka Hiratsuka (formerly Yuka Sekine)
+   Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
+   https://creativecommons.org/licenses/by-nc-nd/4.0/
+
+--------------------------------------------------------------------------
+
+MIT License
+
+Copyright (c) 2026 Kouta Sekine
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+The MIT License above does not apply to part 2 (the "えんじ" design shown in
+images/slide.webp and images/og.png), which is licensed only under CC BY-NC-ND 4.0.

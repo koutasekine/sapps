@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S Apps — 講義と講演の道具箱</title>
+<meta name="description" content="講義と講演のための、フリーのブラウザアプリ集。スライド、タイマー、黒板など。広告なし・登録なし・インストール不要で、ネットがなくても動きます。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sapp.jp/">
+<meta property="og:site_name" content="S Apps">
+<meta property="og:title" content="S Apps — 講義と講演の道具箱">
+<meta property="og:description" content="講義と講演のための、フリーのブラウザアプリ集。スライド、タイマー、黒板など。広告なし・登録なし・インストール不要で、ネットがなくても動きます。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://sapp.jp/images/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="シンプルスライド、フローチャート、黒板、タイマーの画面">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root {
+    --board: #2f5a3c;
+    --chalk: #f2f2f2;
+    --chalk-red: #ff7046;
+    --chalk-yellow: #f8e070;
+    --chalk-blue: #5aa9ff;
+    --ink: #1d2a22;
+    --ink-soft: #4a5750;
+    --paper: #ffffff;
+    --rule: #d5dbd7;
+    --link: #0066cc;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Meiryo", sans-serif;
+    font-size: 16px;
+    line-height: 1.85;
+  }
+  a { color: var(--link); }
+  a:focus-visible, .btn:focus-visible {
+    outline: 3px solid var(--chalk-blue);
+    outline-offset: 2px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  /* 看板(黒板) */
+  .board {
+    background: var(--board);
+    color: var(--chalk);
+    padding: 64px 0 56px;
+  }
+  .board h1 {
+    margin: 0;
+    font-size: clamp(56px, 12vw, 112px);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+  }
+  .board .yomi {
+    margin: 10px 0 0;
+    font-size: clamp(15px, 2.2vw, 18px);
+    letter-spacing: 0.2em;
+    opacity: 0.85;
+  }
+  .board .lead {
+    margin: 28px 0 0;
+    font-size: clamp(20px, 3.4vw, 28px);
+    line-height: 1.6;
+    font-weight: 700;
+    word-break: auto-phrase;
+  }
+  .board .sub {
+    margin: 4px 0 0;
+    font-size: clamp(16px, 2.4vw, 20px);
+  }
+  .promise {
+    list-style: none;
+    margin: 36px 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .promise li {
+    padding-bottom: 2px;
+    border-bottom: 3px solid var(--chalk);
+  }
+  .promise li:nth-child(4n+2) { border-color: var(--chalk-red); }
+  .promise li:nth-child(4n+3) { border-color: var(--chalk-yellow); }
+  .promise li:nth-child(4n+4) { border-color: var(--chalk-blue); }
+
+  /* 本文の節 */
+  main section { padding: 48px 0 0; }
+  main h2 {
+    margin: 0 0 12px;
+    font-size: 22px;
+    line-height: 1.5;
+  }
+  main p { margin: 0 0 10px; max-width: 40em; }
+  .steps { margin: 0 0 10px; padding-left: 1.6em; max-width: 40em; }
+  .steps li { margin: 2px 0; }
+
+  /* アプリ */
+  .apps {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 40px 32px;
+    padding-top: 48px;
+  }
+  .app {
+    border-top: 4px solid var(--ink);
+    padding-top: 14px;
+  }
+  /* 各カードの本文と下のボタンを 2 行に分け、ボタンの高さをカード間でそろえる */
+  @supports (grid-template-rows: subgrid) {
+    .app { display: grid; grid-row: span 2; grid-template-rows: subgrid; row-gap: 0; }
+  }
+  .shot {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 0 12px;
+    border: 1px solid var(--rule);
+  }
+  .app h2 { margin-bottom: 4px; font-size: 24px; }
+  .star {
+    color: var(--board);
+    font-weight: 400;
+  }
+  .app .what { font-weight: 700; margin-bottom: 12px; }
+  .app p { color: var(--ink-soft); }
+  .app .what { color: var(--ink); }
+  .actions {
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .btn {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 2px solid var(--board);
+    border-radius: 4px;
+    color: var(--board);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.4;
+    text-decoration: none;
+  }
+  .btn:hover { background: #eef3ef; }
+  .btn.open { background: var(--board); color: var(--chalk); }
+  .btn.open:hover { background: #24472f; }
+  .ai {
+    margin-top: 18px;
+    padding-top: 12px;
+    border-top: 1px solid var(--rule);
+  }
+  .ai p { margin-bottom: 0; font-size: 15px; }
+  .ai .actions { margin-top: 0; }
+
+  footer.author {
+    margin-top: 56px;
+    padding: 32px 0 48px;
+    border-top: 1px solid var(--rule);
+  }
+  footer.author h2 { font-size: 18px; margin: 0 0 8px; }
+  footer.author p { margin: 0 0 8px; max-width: 40em; }
+
+  @media (max-width: 480px) {
+    .board { padding: 44px 0 40px; }
+    .promise { font-size: 16px; gap: 6px 16px; }
+    main section, .apps { padding-top: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="board">
+  <div class="wrap">
+    <h1>S Apps</h1>
+    <p class="yomi">サップス</p>
+    <p class="lead">開いてすぐ使える、講義と講演の道具箱。</p>
+    <p class="sub">教える人にも、学ぶ人にも。</p>
+    <ul class="promise">
+      <li>フリー。</li>
+      <li>広告なし。</li>
+      <li>登録なし。</li>
+      <li>インストール不要。</li>
+      <li>データを送らない。</li>
+      <li>ネットがなくても動く。</li>
+    </ul>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <h2>ファイル 1 つを保存すれば、手元で動きます</h2>
+    <p>どのアプリも HTML ファイル 1 つでできています。</p>
+    <p>各アプリの「開く」でそのままブラウザで使えます。「ダウンロード」でそのファイルを保存すれば、ダブルクリックするだけで、ネットにつながっていないパソコンでも動きます。</p>
+  </section>
+
+  <section>
+    <h2>生成 AI と一緒に使う</h2>
+    <p><span class="star" role="img" aria-label="生成 AI 対応" title="生成 AI 対応">★</span> の付いたアプリは、文字で書いた内容からスライドや図などを作ります。書き方はアプリごとに独自に決めてあり、それぞれに生成 AI 向けのプロンプトを用意しています。</p>
+    <p>ChatGPT や Claude などの生成 AI に頼むときは、最初にそのプロンプトを AI に渡してください。AI がそのアプリの書き方で書くので、そのまま貼って使えます。</p>
+    <ol class="steps">
+      <li>アプリの「プロンプトをコピー」を押し、生成 AI に貼る</li>
+      <li>続けて、作りたいものの内容を伝える</li>
+      <li>AI が書いたものを、アプリに貼る</li>
+      <li>できたものを見て、直したい点を AI に伝える</li>
+    </ol>
+    <p>アプリから生成 AI に何かが送られることはありません。AI に渡すのは、あなたが貼ったプロンプトと頼んだ内容だけです。</p>
+  </section>
+
+  <div class="apps">
+
+    <article class="app">
+      <div class="body">
+      <img class="shot" src="images/slide.webp" width="960" height="513" alt="シンプルスライドの画面。左に Markdown のソース、右に数式を含むスライドが表示されている" loading="lazy">
+      <h2>シンプルスライド <span class="star" role="img" aria-label="生成 AI 対応" title="生成 AI 対応">★</span></h2>
+      <p class="what">Markdown で書く、数式に強いスライド。</p>
+      <p>PowerPoint や Keynote は環境で見た目が変わり、数式も書きにくい。それを解決するために作りました。</p>
+      <p>数式・定理の囲み枠・段階表示・発表中のペン書き込み・PDF 印刷に対応。生成 AI にスライドのソースを書かせることもできます。</p>
+      </div>
+      <div class="foot">
+      <div class="actions">
+        <a class="btn open" href="https://slide.sapp.jp/" target="_blank" rel="noopener">開く</a>
+        <a class="btn" href="https://raw.githubusercontent.com/koutasekine/slide/main/index.html" data-save="slide.html">ダウンロード</a>
+        <a class="btn" href="https://github.com/koutasekine/slide#readme" target="_blank" rel="noopener">使い方</a>
+        <a class="btn" href="https://github.com/koutasekine/slide" target="_blank" rel="noopener">ソース</a>
+      </div>
+      <div class="ai">
+        <p>生成 AI にスライドの Markdown を書かせるときは、最初にこのプロンプトを AI に渡してください。</p>
+        <div class="actions">
+          <a class="btn" href="https://raw.githubusercontent.com/koutasekine/slide/main/prompt_for_ai.md" data-copy>プロンプトをコピー</a>
+          <a class="btn" href="https://raw.githubusercontent.com/koutasekine/slide/main/prompt_for_ai.md" data-save="slide_prompt_for_ai.md">プロンプトをダウンロード</a>
+        </div>
+      </div>
+      </div>
+    </article>
+
+    <article class="app">
+      <div class="body">
+      <img class="shot" src="images/flow.webp" width="960" height="513" alt="フローチャートの画面。左に Python の手順、右に開始・入力・処理・判断の記号が線でつながったフローチャートが表示されている" loading="lazy">
+      <h2>フローチャート <span class="star" role="img" aria-label="生成 AI 対応" title="生成 AI 対応">★</span></h2>
+      <p class="what">Python で書いた手順を、JIS 規格のフローチャートに。</p>
+      <p>規格から外れたフローチャートを描いてしまう学生のために作りました。曲線の線や、ひし形の頂点以外から出る線は描けません。</p>
+      <p>Python を書くと図が自動で描かれ、記号をクリックして編集もできます。SVG・PNG・PDF で保存でき、スライドや TeX の報告書に貼れます。</p>
+      </div>
+      <div class="foot">
+      <div class="actions">
+        <a class="btn open" href="https://flow.sapp.jp/" target="_blank" rel="noopener">開く</a>
+        <a class="btn" href="https://raw.githubusercontent.com/koutasekine/flow/main/index.html" data-save="flow.html">ダウンロード</a>
+        <a class="btn" href="https://github.com/koutasekine/flow#readme" target="_blank" rel="noopener">使い方</a>
+        <a class="btn" href="https://github.com/koutasekine/flow" target="_blank" rel="noopener">ソース</a>
+      </div>
+      <div class="ai">
+        <p>生成 AI にフローチャートの Python を書かせるときは、最初にこのプロンプトを AI に渡してください。</p>
+        <div class="actions">
+          <a class="btn" href="https://raw.githubusercontent.com/koutasekine/flow/main/docs/prompt_for_ai.md" data-copy>プロンプトをコピー</a>
+          <a class="btn" href="https://raw.githubusercontent.com/koutasekine/flow/main/docs/prompt_for_ai.md" data-save="flow_prompt_for_ai.md">プロンプトをダウンロード</a>
+        </div>
+      </div>
+      </div>
+    </article>
+
+    <article class="app">
+      <div class="body">
+      <img class="shot" src="images/board.webp" width="960" height="518" alt="黒板の画面。深緑の黒板に、白・朱赤・黄・青の 4 色のペンで線が引かれている" loading="lazy">
+      <h2>黒板</h2>
+      <p class="what">どこまでも広がる黒板。</p>
+      <p>色が見えづらい人にも見分けられるペンの色にしています。</p>
+      <p>ペンタブレットの筆圧、画像の貼り付け、SVG・PNG での保存に対応。板書を保存して学生に配り、学生が書き足すこともできます。</p>
+      </div>
+      <div class="foot">
+      <div class="actions">
+        <a class="btn open" href="https://board.sapp.jp/" target="_blank" rel="noopener">開く</a>
+        <a class="btn" href="https://raw.githubusercontent.com/koutasekine/whiteboard/main/index.html" data-save="board.html">ダウンロード</a>
+        <a class="btn" href="https://github.com/koutasekine/whiteboard#readme" target="_blank" rel="noopener">使い方</a>
+        <a class="btn" href="https://github.com/koutasekine/whiteboard" target="_blank" rel="noopener">ソース</a>
+      </div>
+      </div>
+    </article>
+
+    <article class="app">
+      <div class="body">
+      <img class="shot" src="images/timer.webp" width="960" height="509" alt="タイマーの画面。講演のカウントアップで経過時間 0:02 と、予鈴・発表終了・質疑終了の時刻が大きく表示されている" loading="lazy">
+      <h2>タイマー</h2>
+      <p class="what">試験と講演のためのタイマー。</p>
+      <p>OS ごとに使い方が違ったり、別のアプリを入れたりする手間をなくすために作りました。</p>
+      <p>講演は予鈴・発表終了・質疑終了の 3 つの鈴、試験は終了の鈴。全画面でプロジェクタに映せます。</p>
+      </div>
+      <div class="foot">
+      <div class="actions">
+        <a class="btn open" href="https://timer.sapp.jp/" target="_blank" rel="noopener">開く</a>
+        <a class="btn" href="https://raw.githubusercontent.com/koutasekine/timer/main/index.html" data-save="timer.html">ダウンロード</a>
+        <a class="btn" href="https://github.com/koutasekine/timer#readme" target="_blank" rel="noopener">使い方</a>
+        <a class="btn" href="https://github.com/koutasekine/timer" target="_blank" rel="noopener">ソース</a>
+      </div>
+      </div>
+    </article>
+
+  </div>
+
+  <section>
+    <h2>データを送らない仕組み</h2>
+    <p>アプリはすべて、お使いのブラウザの中で動いています。入力した文章や描いた図がサーバーに送られることはありません。作業中の内容はお使いのブラウザの中に、保存したファイルはお使いのパソコンに残ります。</p>
+  </section>
+
+  <section>
+    <h2>ライセンス</h2>
+    <p>プログラムは MIT ライセンスです。授業や研究、仕事でも自由に使え、改変や再配布もできます。</p>
+    <p>ただし、シンプルスライドの配色「えんじ」「紫紺」「ペールブルー」のデザインは CC BY-NC-ND 4.0 で、営利目的での利用と、改変したものの配布はできません。</p>
+    <p>詳しくは各アプリの GitHub のページを見てください。</p>
+  </section>
+
+</main>
+
+<footer class="author">
+  <div class="wrap">
+    <h2>作った人</h2>
+    <p>関根晃太が、自身の大学の講義や学会発表のために作った道具を、そのまま公開しています。</p>
+    <p><a href="https://271.jp/">271.jp</a></p>
+  </div>
+</footer>
+
+<script>
+function getText(href) {
+  return fetch(href).then(function (r) {
+    if (!r.ok) throw new Error(r.status);
+    return r.text();
+  });
+}
+
+// 「ダウンロード」: GitHub 上のファイルを取得し、ファイルとして保存させる。
+// 取得できない場合は、リンク先(ファイルのテキスト)をそのまま開く。
+document.querySelectorAll('a[data-save]').forEach(function (a) {
+  a.addEventListener('click', function (e) {
+    if (!window.fetch || !window.URL || !URL.createObjectURL) return;
+    e.preventDefault();
+    var type = /\.md$/.test(a.dataset.save) ? 'text/markdown' : 'text/html';
+    getText(a.href).then(function (text) {
+      var url = URL.createObjectURL(new Blob([text], { type: type + ';charset=utf-8' }));
+      var t = document.createElement('a');
+      t.href = url;
+      t.download = a.dataset.save;
+      document.body.appendChild(t);
+      t.click();
+      t.remove();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 10000);
+    }).catch(function () {
+      location.href = a.href;
+    });
+  });
+});
+
+// 「コピー」: GitHub 上のファイルを取得し、クリップボードに入れる。
+// コピーできない場合は、ファイルのテキストを別タブで開く。
+document.querySelectorAll('a[data-copy]').forEach(function (a) {
+  var label = a.textContent;
+  function show(t) {
+    a.textContent = t;
+    setTimeout(function () { a.textContent = label; }, 2000);
+  }
+  a.addEventListener('click', function (e) {
+    if (!window.fetch || !navigator.clipboard) return;
+    e.preventDefault();
+    var p;
+    if (window.ClipboardItem && navigator.clipboard.write) {
+      // 取得を待つ間もクリック操作として扱われるよう、Promise のまま渡す(Safari 対策)
+      p = navigator.clipboard.write([new ClipboardItem({
+        'text/plain': getText(a.href).then(function (t) { return new Blob([t], { type: 'text/plain' }); })
+      })]).catch(function () {
+        return getText(a.href).then(function (t) { return navigator.clipboard.writeText(t); });
+      });
+    } else {
+      p = getText(a.href).then(function (t) { return navigator.clipboard.writeText(t); });
+    }
+    p.then(function () { show('コピーしました'); })
+     .catch(function () { show('コピーできませんでした'); window.open(a.href, '_blank', 'noopener'); });
+  });
+});
+</script>
+</body>
+</html>
