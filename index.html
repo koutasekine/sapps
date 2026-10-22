@@ -208,7 +208,7 @@
   <section>
     <h2>生成 AI と一緒に使う</h2>
     <p><span class="star" role="img" aria-label="生成 AI 対応" title="生成 AI 対応">★</span> の付いたアプリは、文字で書いた内容からスライドや図などを作ります。書き方はアプリごとに独自に決めてあり、それぞれに生成 AI 向けのプロンプトを用意しています。</p>
-    <p>お使いの ChatGPT や Claude などに頼むときは、最初にそのプロンプトを渡してください。AI がそのアプリの書き方で書くので、そのまま貼って使えます。なお，アプリ自身には生成 AI は入っていません。</p>
+    <p>お使いの ChatGPT や Claude などに頼むときは、最初にそのプロンプトを渡してください。AI がそのアプリの書き方で書くので、そのまま貼って使えます。なお、アプリ自身には生成 AI は入っていません。</p>
     <ol class="steps">
       <li>アプリの「プロンプトをコピー」を押し、生成 AI に貼る</li>
       <li>続けて、作りたいものの内容を伝える</li>
@@ -216,6 +216,13 @@
       <li>できたものを見て、直したい点を AI に伝える</li>
     </ol>
     <p>※アプリから生成 AI に何かが送られることはありません。AI に渡すのは、あなたが貼ったプロンプトと頼んだ内容だけです。</p>
+  </section>
+
+  <section>
+    <h2>複数人で作る</h2>
+    <p>★ の付いたアプリは、スライドや図などを、Markdown やプログラムのようなテキスト記法で書きます。複数人で作るときは、Git と GitHub などによる共同作業をおすすめします。</p>
+    <p>Git なら、誰が、いつ、どこを、なぜ変えたかが記録に残り、取り込む前に変更を確かめることもできます。</p>
+    <p>なお、同じ画面を何人かで同時に編集する機能はありません。</p>
   </section>
 
   <div class="apps">
@@ -247,11 +254,11 @@
 
     <article class="app">
       <div class="body">
-      <img class="shot" src="images/flow.webp" width="960" height="513" alt="フローチャートの画面。左に Python の手順、右に開始・入力・処理・判断の記号が線でつながったフローチャートが表示されている" loading="lazy">
+      <img class="shot" src="images/flow.webp" width="960" height="513" alt="フローチャートの画面。左に Python 風の手順、右に開始・入力・処理・判断の記号が線でつながったフローチャートが表示されている" loading="lazy">
       <h2>フローチャート <span class="star" role="img" aria-label="生成 AI 対応" title="生成 AI 対応">★</span></h2>
-      <p class="what">Python で書いた手順を、JIS 規格のフローチャートに。</p>
+      <p class="what">Python 風に書いた手順を、JIS 規格のフローチャートに。</p>
       <p>規格から外れたフローチャートを描いてしまう学生のために作りました。曲線の線や、ひし形の頂点以外から出る線は描けません。</p>
-      <p>Python を書くと図が自動で描かれ、記号をクリックして編集もできます。SVG・PNG・PDF で保存でき、スライドや TeX の報告書に貼れます。</p>
+      <p>Python 風に書くと図が自動で描かれ、記号をクリックして編集もできます。SVG・PNG・PDF で保存でき、スライドや TeX の報告書に貼れます。</p>
       </div>
       <div class="foot">
       <div class="actions">
@@ -261,7 +268,7 @@
         <a class="btn" href="https://github.com/koutasekine/flow" target="_blank" rel="noopener">ソース</a>
       </div>
       <div class="ai">
-        <p>生成 AI にフローチャートの Python を書かせるときは、最初にこのプロンプトを AI に渡してください。</p>
+        <p>生成 AI にフローチャートの Python 風の手順を書かせるときは、最初にこのプロンプトを AI に渡してください。</p>
         <div class="actions">
           <a class="btn" href="https://raw.githubusercontent.com/koutasekine/flow/main/docs/prompt_for_ai.md" data-copy>プロンプトをコピー</a>
           <a class="btn" href="https://raw.githubusercontent.com/koutasekine/flow/main/docs/prompt_for_ai.md" data-save="flow_prompt_for_ai.md">プロンプトをダウンロード</a>
