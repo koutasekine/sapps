@@ -102,6 +102,7 @@
     line-height: 1.5;
   }
   main p { margin: 0 0 10px; max-width: 40em; }
+  main h3 { margin: 24px 0 8px; font-size: 18px; line-height: 1.5; }
   .steps { margin: 0 0 10px; padding-left: 1.6em; max-width: 40em; }
   .steps li { margin: 2px 0; }
 
@@ -206,9 +207,12 @@
   </section>
 
   <section>
-    <h2>生成 AI と一緒に使う</h2>
-    <p><span class="star" role="img" aria-label="生成 AI 対応" title="生成 AI 対応">★</span> の付いたアプリは、文字で書いた内容からスライドや図などを作ります。書き方はアプリごとに独自に決めてあり、それぞれに生成 AI 向けのプロンプトを用意しています。</p>
-    <p>お使いの ChatGPT や Claude などに頼むときは、最初にそのプロンプトを渡してください。AI がそのアプリの書き方で書くので、そのまま貼って使えます。なお、アプリ自身には生成 AI は入っていません。</p>
+    <h2>テキスト記法で書く</h2>
+    <p><span class="star" role="img" aria-label="テキスト記法対応" title="テキスト記法対応">★</span> の付いたアプリは、Markdown やプログラムのようなテキスト記法で書いた内容から、スライドや図などを作ります。テキスト記法はアプリごとに独自に決めてあります。</p>
+    <p>テキストで書くので、生成 AI に書かせることも、GitHub などで複数人の変更を管理することもできます。</p>
+
+    <h3>生成 AI と一緒に使う</h3>
+    <p>アプリごとに、生成 AI 向けのプロンプトを用意しています。お使いの ChatGPT や Claude などに頼むときは、最初にそのプロンプトを渡してください。AI がそのアプリのテキスト記法で書くので、そのまま貼って使えます。なお、アプリ自身には生成 AI は入っていません。</p>
     <ol class="steps">
       <li>アプリの「プロンプトをコピー」を押し、生成 AI に貼る</li>
       <li>続けて、作りたいものの内容を伝える</li>
@@ -216,12 +220,9 @@
       <li>できたものを見て、直したい点を AI に伝える</li>
     </ol>
     <p>※アプリから生成 AI に何かが送られることはありません。AI に渡すのは、あなたが貼ったプロンプトと頼んだ内容だけです。</p>
-  </section>
 
-  <section>
-    <h2>複数人で作る</h2>
-    <p>★ の付いたアプリは、スライドや図などを、Markdown やプログラムのようなテキスト記法で書きます。複数人で作るときは、Git と GitHub などによる共同作業をおすすめします。</p>
-    <p>Git なら、誰が、いつ、どこを、なぜ変えたかが記録に残り、取り込む前に変更を確かめることもできます。</p>
+    <h3>複数人で作る</h3>
+    <p>複数人で作るときは、書いたテキストを Git と GitHub などで管理する共同作業をおすすめします。Git なら、誰が、いつ、どこを、なぜ変えたかが記録に残り、取り込む前に変更を確かめることもできます。</p>
     <p>なお、同じ画面を何人かで同時に編集する機能はありません。</p>
   </section>
 
@@ -230,7 +231,7 @@
     <article class="app">
       <div class="body">
       <img class="shot" src="images/slide.webp" width="960" height="513" alt="シンプルスライドの画面。左に Markdown のソース、右に数式を含むスライドが表示されている" loading="lazy">
-      <h2>シンプルスライド <span class="star" role="img" aria-label="生成 AI 対応" title="生成 AI 対応">★</span></h2>
+      <h2>シンプルスライド <span class="star" role="img" aria-label="テキスト記法対応" title="テキスト記法対応">★</span></h2>
       <p class="what">Markdown で書く、数式に強いスライド。</p>
       <p>PowerPoint や Keynote は環境で見た目が変わり、数式も書きにくい。それを解決するために作りました。</p>
       <p>数式・定理の囲み枠・段階表示・発表中のペン書き込み・PDF 印刷に対応。生成 AI にスライドのソースを書かせることもできます。</p>
@@ -255,7 +256,7 @@
     <article class="app">
       <div class="body">
       <img class="shot" src="images/flow.webp" width="960" height="513" alt="フローチャートの画面。左に Python 風の手順、右に開始・入力・処理・判断の記号が線でつながったフローチャートが表示されている" loading="lazy">
-      <h2>フローチャート <span class="star" role="img" aria-label="生成 AI 対応" title="生成 AI 対応">★</span></h2>
+      <h2>フローチャート <span class="star" role="img" aria-label="テキスト記法対応" title="テキスト記法対応">★</span></h2>
       <p class="what">Python 風に書いた手順を、JIS 規格のフローチャートに。</p>
       <p>規格から外れたフローチャートを描いてしまう学生のために作りました。曲線の線や、ひし形の頂点以外から出る線は描けません。</p>
       <p>Python 風に書くと図が自動で描かれ、記号をクリックして編集もできます。SVG・PNG・PDF で保存でき、スライドや TeX の報告書に貼れます。</p>
