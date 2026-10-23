@@ -134,6 +134,7 @@
     font-weight: 400;
   }
   .app .what { font-weight: 700; margin-bottom: 12px; }
+  .app code { font-size: 0.9em; padding: 0 3px; background: #eef3ef; border-radius: 3px; white-space: nowrap; }
   .app p { color: var(--ink-soft); }
   .app .what { color: var(--ink); }
   .actions {
@@ -279,6 +280,36 @@
         <div class="actions">
           <a class="btn" href="https://raw.githubusercontent.com/koutasekine/flow/main/docs/prompt_for_ai.md" data-copy>プロンプトをコピー</a>
           <a class="btn" href="https://raw.githubusercontent.com/koutasekine/flow/main/docs/prompt_for_ai.md" data-save="flow_prompt_for_ai.md">プロンプトをダウンロード</a>
+        </div>
+      </div>
+      </div>
+    </article>
+
+    <article class="app">
+      <div class="body">
+      <img class="shot" src="images/circuit.webp" width="960" height="513" alt="回路図の画面。左に回路のテキスト記法、右に Arduino Uno と抵抗・LED などの記号が線でつながった回路図が表示されている" loading="lazy">
+      <h2>回路図 <span class="star" role="img" aria-label="テキスト記法対応" title="テキスト記法対応">★</span></h2>
+      <p class="what">シンプルな独自のテキスト記法で書く回路図。</p>
+      <p>学生が正しい記号で回路図を描けるようになるために作りました。記号は JIS C 0617 を基本に、高校の教科書などで使われる形です。</p>
+      <p><code>U1.D13 -- R1 -- D1 -- GND</code> のように、つなぐ順に書くだけで線が引かれます。電気回路・電子回路から、Arduino とセンサーの回路まで描け、LED の逆向きなどの誤りも警告します。SVG・PNG・PDF で保存でき、スライドや TeX の報告書に貼れます。</p>
+      </div>
+      <div class="foot">
+      <div class="actions">
+        <a class="btn open" href="https://circuit.sapp.jp/" target="_blank" rel="noopener">開く</a>
+        <a class="btn" href="https://raw.githubusercontent.com/koutasekine/circuit/main/index.html" data-save="circuit.html">ダウンロード</a>
+        <a class="btn" href="https://github.com/koutasekine/circuit#readme" target="_blank" rel="noopener">使い方</a>
+        <a class="btn" href="https://github.com/koutasekine/circuit" target="_blank" rel="noopener">ソース</a>
+      </div>
+      <div class="ai">
+        <p>生成 AI に回路のテキストを書かせるときは、最初にこのプロンプトを AI に渡してください。高校の電気回路も含む、全部入りのプロンプトです。</p>
+        <div class="actions">
+          <a class="btn" href="https://raw.githubusercontent.com/koutasekine/circuit/main/docs/prompt_for_ai.md" data-copy>プロンプトをコピー</a>
+          <a class="btn" href="https://raw.githubusercontent.com/koutasekine/circuit/main/docs/prompt_for_ai.md" data-save="circuit_prompt_for_ai.md">プロンプトをダウンロード</a>
+        </div>
+        <p>Arduino とセンサーの回路には、こちらのプロンプトを使います。使う機種とセンサーの定義を書き足してから渡してください。</p>
+        <div class="actions">
+          <a class="btn" href="https://raw.githubusercontent.com/koutasekine/circuit/main/docs/prompt_for_ai_hackathon.md" data-copy>プロンプトをコピー</a>
+          <a class="btn" href="https://raw.githubusercontent.com/koutasekine/circuit/main/docs/prompt_for_ai_hackathon.md" data-save="circuit_hackathon_prompt_for_ai.md">プロンプトをダウンロード</a>
         </div>
       </div>
       </div>
