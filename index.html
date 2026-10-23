@@ -162,6 +162,7 @@
     border-top: 1px solid var(--rule);
   }
   .ai p { margin-bottom: 0; font-size: 15px; }
+  .ai .actions + p { margin-top: 14px; }
   .ai .actions { margin-top: 0; }
 
   footer.author {
@@ -234,7 +235,7 @@
       <h2>シンプルスライド <span class="star" role="img" aria-label="テキスト記法対応" title="テキスト記法対応">★</span></h2>
       <p class="what">Markdown で書く、数式に強いスライド。</p>
       <p>PowerPoint や Keynote は環境で見た目が変わり、数式も書きにくい。それを解決するために作りました。</p>
-      <p>数式・定理の囲み枠・段階表示・発表中のペン書き込み・PDF 印刷に対応。生成 AI にスライドのソースを書かせることもできます。</p>
+      <p>数式・定理の囲み枠・段階表示・発表中のペン書き込み・PDF 印刷に対応。生成 AI にスライドのソースやデザインを書かせることもできます。</p>
       </div>
       <div class="foot">
       <div class="actions">
@@ -248,6 +249,11 @@
         <div class="actions">
           <a class="btn" href="https://raw.githubusercontent.com/koutasekine/slide/main/prompt_for_ai.md" data-copy>プロンプトをコピー</a>
           <a class="btn" href="https://raw.githubusercontent.com/koutasekine/slide/main/prompt_for_ai.md" data-save="slide_prompt_for_ai.md">プロンプトをダウンロード</a>
+        </div>
+        <p>デザイン(背景と色)を作らせるときは、こちらのプロンプトを渡します。AI が書いた JSON をファイルに保存し、配色の選択欄の「デザインを読み込む…」で取り込みます。</p>
+        <div class="actions">
+          <a class="btn" href="https://raw.githubusercontent.com/koutasekine/slide/main/prompt_for_ai_design.md" data-copy>プロンプトをコピー</a>
+          <a class="btn" href="https://raw.githubusercontent.com/koutasekine/slide/main/prompt_for_ai_design.md" data-save="slide_design_prompt_for_ai.md">プロンプトをダウンロード</a>
         </div>
       </div>
       </div>
