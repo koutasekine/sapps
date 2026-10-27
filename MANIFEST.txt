@@ -1,0 +1,19 @@
+# S Apps トップページ(sapp.jp)第 37 版。リポジトリ sapps のルートに展開する。index.html のみ変更。すべて投入可。
+# index.html: トップページ本体
+# CNAME: GitHub Pages の独自ドメイン設定ファイル(中身は sapp.jp の 1 行)
+# README.md: リポジトリの説明
+# LICENSE: MIT(画面写真に写る配色「えんじ」は CC BY-NC-ND 4.0 として除外)
+# images/*.webp: 各アプリのカードの画面写真(960x513 前後)
+# images/og.png: SNS 等で共有されたときの画像(1200x630、4 アプリを 2x2 で配置。回路図・プロジェクト計画・プロジェクト分析は未収録)
+cd816a5eb4b4db74d85a2ee4d7e9146c  index.html
+848f8e377ed10a89617527ca5b65f361  CNAME
+0d65a9dfd3a34166f971927395fa9a7d  README.md
+21421fe0a5135d6dc89cdfb34ba145e8  LICENSE
+e29ba7dc2b09464d13ab261355fcdcd1  images/slide.webp
+2b0505a65f4980e1e3bd0a81a0ecf207  images/flow.webp
+6e367a924dc05868a848e6c96dd2f61e  images/circuit.webp
+23342aac779577273f5c9b16a459cf5b  images/plan.webp
+6b0471959305222fbeabcd2e69ad4d6b  images/projalysis.webp
+fca96da16a6d0ea38e28ccc5edb33a9d  images/board.webp
+7b65b45fff9215cb581cf2070b517231  images/timer.webp
+2b936e08483b3910015183d34bf53639  images/og.png
