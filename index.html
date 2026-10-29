@@ -134,7 +134,7 @@
     font-weight: 400;
   }
   .app .what { font-weight: 700; margin-bottom: 12px; }
-  .app code { font-size: 0.9em; padding: 0 3px; background: #eef3ef; border-radius: 3px; white-space: nowrap; }
+  .app code { font-size: 0.9em; padding: 0 3px; background: #eef3ef; border-radius: 3px; word-break: keep-all; overflow-wrap: anywhere; }
   .app p { color: var(--ink-soft); }
   .app .what { color: var(--ink); }
   .actions {
@@ -328,7 +328,8 @@
       <h2>プロジェクト計画 <span class="star" role="img" aria-label="テキスト記法対応" title="テキスト記法対応">★</span></h2>
       <p class="what">テキストで書く、プロジェクト計画。</p>
       <p>機能から製品、作業、担当、日程までを、一続きに計画できるようになるために作りました。絵を描くことよりも、計画の漏れや矛盾を見つけることと、日程を計算することに重点を置いています。</p>
-      <p><code>- 画面の実装 days: 3 after: 画面設計</code> のように作業を書くだけで、FBS・PBS・WBS・役割分担・アローダイアグラム・ガントチャートが描かれます。クリティカルパスを求め、担当者の作業の重なりと休みを避けて日程を組みます。図と表は SVG・PNG・PDF で保存でき、スライドや報告書に貼れます。</p>
+      <p><code>- 画面の実装 days: 3 after: 画面設計</code> のようにタスクを書くだけで、FBS・PBS・WBS・アローダイアグラム・ガントチャート・テスト項目(MOP)の表・サマリーなど、10 の図と表が描かれます。クリティカルパスを求め、担当者のタスクの重なりと休みを避けて日程を組みます。図と表は SVG・PNG・PDF で保存でき、スライドや報告書に貼れます。</p>
+      <p>単体で使え、マイログやプロジェクト分析と組み合わせても使えます。</p>
       </div>
       <div class="foot">
       <div class="actions">
@@ -349,11 +350,34 @@
 
     <article class="app">
       <div class="body">
+      <img class="shot" src="images/mylog.webp" width="960" height="513" alt="マイログの画面。左に日付ごとの作業の記録、右に実行中・遅延・問題発生などに分けたタスクの表が表示されている" loading="lazy">
+      <h2>マイログ <span class="star" role="img" aria-label="テキスト記法対応" title="テキスト記法対応">★</span></h2>
+      <p class="what">テキストで書き足す、日々の作業の記録。</p>
+      <p>プロジェクトの実行中に起きている問題を、早く見つけるために作りました。作業時間を数えることより、詰まっていないか、依頼が放置されていないかを拾い出すことに重点を置いています。</p>
+      <p>1 人 1 ファイルで、<code>- 通知用APIの実装 hours: 3 progress: 40</code> のように、日付ごとに作業・問題・依頼・テストの結果を書き足します。表は SVG・PNG・PDF で保存できます。</p>
+      <p>単体で使え、プロジェクト計画の計画書を読み込むと、名前の照合や担当のタスク、問題の兆候、今週の予定も見られます。</p>
+      </div>
+      <div class="foot">
+      <div class="actions">
+        <a class="btn open" href="https://mylog.sapp.jp/" target="_blank" rel="noopener">開く</a>
+        <a class="btn" href="https://raw.githubusercontent.com/koutasekine/mylog/main/index.html" data-save="mylog.html">ダウンロード</a>
+        <a class="btn" href="https://github.com/koutasekine/mylog#readme" target="_blank" rel="noopener">使い方</a>
+        <a class="btn" href="https://github.com/koutasekine/mylog" target="_blank" rel="noopener">ソース</a>
+      </div>
+      <div class="ai">
+        <p>生成 AI に質問してもらいながら今日の記録を作るときは、アプリの「AI で記録」からプロンプトをコピーしてください。人の名前は伏せて渡します。</p>
+      </div>
+      </div>
+    </article>
+
+    <article class="app">
+      <div class="body">
       <img class="shot" src="images/projalysis.webp" width="960" height="513" alt="プロジェクト分析の画面。左に読み込んだ計画の版の一覧、右に 2 つの版の対応した要素の数と、ガントチャートの比較が表示されている" loading="lazy">
       <h2>プロジェクト分析</h2>
-      <p class="what">計画の変わり方から、プロジェクトを振り返る。</p>
+      <p class="what">計画と記録から、プロジェクトを振り返る。</p>
       <p>振り返りを、次のプロジェクトの運営に生かすために作りました。完了報告書に載せる表や図の原案を作れます。</p>
-      <p>プロジェクト計画で保存した .plan を複数読み込み、改訂履歴、終了日やバーンアップなどの推移、2 つの版の差(タスクの追加・削除・移動など)、ガントチャートの比較を表示します。表と図は SVG・PNG・PDF で保存できます。</p>
+      <p>プロジェクト計画の計画書を版ごとに比べ、改訂履歴、終了日やバーンアップなどの推移、2 つの版の差を示します。表と図は SVG・PNG・PDF で保存できます。</p>
+      <p>計画書を読むだけのアプリで、書き換えはしません。マイログも読み込むと、作業時間、依頼と返事の突き合わせ、問題の兆候、計画に書き写す候補なども示します。</p>
       </div>
       <div class="foot">
       <div class="actions">
