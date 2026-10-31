@@ -1,11 +1,11 @@
-# S Apps トップページ(sapp.jp)第 41 版。リポジトリ sapps のルートに展開する。変更は index.html のみ。すべて投入可。
-# index.html: トップページ本体(プロジェクト分析の一行説明を変更)
+# S Apps トップページ(sapp.jp)第 42 版。リポジトリ sapps のルートに展開する。変更は index.html のみ。すべて投入可。
+# index.html: トップページ本体(「生成 AI と一緒に使う」の節を置き換え、MCP サーバーの段落を追加)
 # CNAME: GitHub Pages の独自ドメイン設定ファイル(中身は sapp.jp の 1 行)
 # README.md: リポジトリの説明
 # LICENSE: MIT(画面写真に写る配色「えんじ」は CC BY-NC-ND 4.0 として除外)
 # images/*.webp: 各アプリのカードの画面写真(960x513 前後)
 # images/og.png: SNS 等で共有されたときの画像(1200x630、4 アプリを 2x2 で配置。回路図・プロジェクト計画・マイログ・プロジェクト分析は未収録)
-e7882c27e358ba81d957b83e63c47ec0  index.html
+e55592dc058024786f9110e30818d871  index.html
 848f8e377ed10a89617527ca5b65f361  CNAME
 0d65a9dfd3a34166f971927395fa9a7d  README.md
 21421fe0a5135d6dc89cdfb34ba145e8  LICENSE
